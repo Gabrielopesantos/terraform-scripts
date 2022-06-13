@@ -12,7 +12,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     name       = "worker-pool"
     size       = "s-1vcpu-2gb"
     node_count = 2
-    tags        = ["worker"]
+    tags       = ["worker"]
   }
 
   maintenance_policy {
