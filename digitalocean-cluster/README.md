@@ -19,6 +19,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [digitalocean_kubernetes_cluster.cluster](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster) | resource |
+| [digitalocean_volume.volume](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/volume) | resource |
 | [digitalocean_kubernetes_versions.versions_data](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/kubernetes_versions) | data source |
 
 ## Inputs
@@ -27,4 +28,6 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_volume_urn"></a> [volume\_urn](#output\_volume\_urn) | Volume uniform resource name |
