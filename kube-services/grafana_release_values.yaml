@@ -1,0 +1,10 @@
+persistence:
+  enabled: true
+  type: pvc
+  size: 1Gi
+  existingClaim: digital-ocean-pvc
+  #subPath: /var/lib/grafana/dashboards
+#plugins:
+  #- strava-datasource
+  #- worldmap-panel
+

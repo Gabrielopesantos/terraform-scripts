@@ -32,7 +32,7 @@ resource "kubernetes_persistent_volume_claim_v1" "digital_ocean_main_volume_pvc"
     access_modes = ["ReadWriteOnce"]
     resources {
       requests = {
-        storage = "5Gi"
+        storage = "1Gi"
       }
     }
     volume_name        = kubernetes_persistent_volume_v1.digital_ocean_main_volume.metadata.0.name
@@ -40,19 +40,15 @@ resource "kubernetes_persistent_volume_claim_v1" "digital_ocean_main_volume_pvc"
   }
 }
 
-#resource "helm_release" "helm_grafana_release" {
-#name             = "grafana"
-#repository       = "https://grafana.github.io/helm-charts"
-#chart            = "grafana"
-#version          = "6.30.1"
-#namespace        = "grafana"
-#create_namespace = true
+resource "helm_release" "helm_grafana_release" {
+  name             = "grafana"
+  repository       = "https://grafana.github.io/helm-charts"
+  chart            = "grafana"
+  version          = "6.32.9"
+  namespace        = "grafana"
+  create_namespace = true
 
-#values = [<<EOF
-#persinstance:
-#enabled: true
-#existingClaim: "cluster-do-block-storage"
-#subPath: /var/lib/grafana/dashboards
-#EOF
-#]
-#}
+  values = [
+    "${file("grafana_release_values.yaml")}"
+  ]
+}
